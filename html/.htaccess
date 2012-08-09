@@ -1,0 +1,11 @@
+RewriteEngine on
+
+# Add www to URL
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# CodeIgniter redirects
+RewriteCond $1 !^(index\.php|css|images|js|robots\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+AddHandler php-stable .php
